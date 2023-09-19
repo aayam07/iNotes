@@ -43,9 +43,13 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         
         // set up sample data to show in the preview (i.e in simulator)
-        for _ in 0..<10 {
+        for i in 0..<5 {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            newItem.task = "Sample task No\(i)"
+            newItem.completion = false
+            newItem.id = UUID()
+            
         }
         do {
             try viewContext.save()

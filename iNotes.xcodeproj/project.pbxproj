@@ -17,6 +17,7 @@
 		A042B2392AB2CCD200DFEF11 /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A042B2362AB2CCD200DFEF11 /* sound-ding.mp3 */; };
 		A042B23A2AB2CCD200DFEF11 /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A042B2372AB2CCD200DFEF11 /* sound-tap.mp3 */; };
 		A0A01BCF2AB885F800F74B26 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A01BCE2AB885F800F74B26 /* Constant.swift */; };
+		A0A01BD12AB9D58700F74B26 /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A01BD02AB9D58700F74B26 /* HideKeyboardExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A042B2372AB2CCD200DFEF11 /* sound-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-tap.mp3"; sourceTree = "<group>"; };
 		A042B2412AB2CE0F00DFEF11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A0A01BCE2AB885F800F74B26 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		A0A01BD02AB9D58700F74B26 /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		A042B23C2AB2CD2500DFEF11 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A0A01BD02AB9D58700F74B26 /* HideKeyboardExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			files = (
 				A042B22C2AB2CB3C00DFEF11 /* Persistence.swift in Sources */,
 				A042B22F2AB2CB3C00DFEF11 /* iNotes.xcdatamodeld in Sources */,
+				A0A01BD12AB9D58700F74B26 /* HideKeyboardExtension.swift in Sources */,
 				A0A01BCF2AB885F800F74B26 /* Constant.swift in Sources */,
 				A042B2252AB2CB3B00DFEF11 /* ContentView.swift in Sources */,
 				A042B2232AB2CB3B00DFEF11 /* iNotesApp.swift in Sources */,

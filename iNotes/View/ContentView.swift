@@ -11,6 +11,13 @@ import CoreData
 struct ContentView: View {
     // MARK: - PROPERTY
     
+    @State var task: String = ""  // to hold the value that user enter in the text field
+    
+    // to check whether the TEXTFIELD is empty or not
+    private var isButtonDisabled: Bool {
+        task.isEmpty  // "true" when no character has been typed in the TEXTFIELD
+    }
+    
     // FETCHING DATA
     // MANAGED OBJECT CONTEXT: An environment where we can manipulate Core Data objects entirely in RAM
     @Environment(\.managedObjectContext) private var viewContext // viewContext is a SCRATCHPAD to retrieve, update, and store objects
@@ -29,6 +36,10 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            // ADD TASK ITEM WHEN USER PRESS SAVE
+            newItem.task = task
+            newItem.completion = false
+            newItem.id = UUID()
 
             do {
                 try viewContext.save()
@@ -37,6 +48,9 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+            
+            task = ""
+            hideKeyboard()  // as this func is an extension for the View, it can be used here
         }
     }
 
@@ -57,26 +71,67 @@ struct ContentView: View {
     //MARK: - BODY
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+            VStack {
+                VStack(spacing: 16) {
+                    TextField("New Task", text: $task)
+                        .padding()
+                        .background(
+                            Color(UIColor.systemGray6)
+                        )
+                        .cornerRadius(10)
+                    
+                    Button {
+                        // ACTION
+                        addItem()
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Spacer()
+                        Text("SAVE")
+                        Spacer()
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }  //: LIST
+                    .disabled(isButtonDisabled)
+                    .padding()  // vitra padding
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .background(isButtonDisabled ? Color.gray : Color.pink)
+//                    .padding()  // bahira padding
+                    .cornerRadius(10)
+
+                } //: VSTACK
+                .padding()
+                
+                List {
+                    ForEach(items) { item in
+                        NavigationLink {
+                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                            
+                        } label: {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text(item.task ?? "")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                
+                                Text(item.timestamp!, formatter: itemFormatter)
+                                    .font(.footnote)
+                                    .foregroundColor(.gray)
+                            }  //: LIST ITEM
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }  //: LIST
+               
+            } //: VSTACK
+            .navigationTitle("Daily Tasks")
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            } //: TOOLBAR
+//                ToolbarItem {
+//                    Button(action: addItem) {
+//                        Label("Add Item", systemImage: "plus")
+//                    }
+//                }
+        } //: TOOLBAR
             
             Text("Select an item")
         } //: NAVIGATION
