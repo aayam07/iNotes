@@ -12,11 +12,8 @@ struct ContentView: View {
     // MARK: - PROPERTY
     
     @State var task: String = ""  // to hold the value that user enter in the text field
+    @State private var showNewTaskItem: Bool = false // to store the actual state of new task item view
     
-    // to check whether the TEXTFIELD is empty or not
-    private var isButtonDisabled: Bool {
-        task.isEmpty  // "true" when no character has been typed in the TEXTFIELD
-    }
     
     // FETCHING DATA
     // MANAGED OBJECT CONTEXT: An environment where we can manipulate Core Data objects entirely in RAM
@@ -32,27 +29,7 @@ struct ContentView: View {
     
     //MARK: - FUNCTIONS
     
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            // ADD TASK ITEM WHEN USER PRESS SAVE
-            newItem.task = task
-            newItem.completion = false
-            newItem.id = UUID()
-
-            do {
-                try viewContext.save()
-            } catch {
-                
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-            
-            task = ""
-            hideKeyboard()  // as this func is an extension for the View, it can be used here
-        }
-    }
+    
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
@@ -72,35 +49,32 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                
+                //MARK: - MAIN VIEW
                 VStack {
-                    VStack(spacing: 16) {
-                        TextField("New Task", text: $task)
-                            .padding()
-                            .background(
-                                Color(UIColor.systemGray6)
-                            )
-                            .cornerRadius(10)
-                        
-                        Button {
-                            // ACTION
-                            addItem()
-                        } label: {
-                            Spacer()
-                            Text("SAVE")
-                            Spacer()
-                        }
-                        .disabled(isButtonDisabled)
-                        .padding()  // vitra padding
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .background(isButtonDisabled ? Color.gray : Color.pink)
-    //                    .padding()  // bahira padding
-                        .cornerRadius(10)
-
-                    } //: VSTACK
-                    .padding()
+                    //MARK: - HEADER
+                    Spacer(minLength: 80)
                     
+                    //MARK: - NEW TASK BUTTON
+                    Button {
+                        showNewTaskItem = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        Text("New Task")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
+                    }
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color.pink, Color.blue]), startPoint: .leading, endPoint: .trailing)
+                            .clipShape(Capsule())
+                            
+                    )
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0.0, y: 4.0)
+
+                    
+                    //MARK: - TASKS
                     List {
                         ForEach(items) { item in
                             NavigationLink {
@@ -121,14 +95,25 @@ struct ContentView: View {
                         .onDelete(perform: deleteItems)
                         
                     }  //: LIST
-//                    .listStyle(PlainListStyle())
-//                    .cornerRadius(12)
+                    .listStyle(PlainListStyle())
+                    .cornerRadius(12)
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)  // remove default vertical padding and maximize the list on iPad devices
-//                    .padding()
+                    .padding()
                    
                 } //: VSTACK
+                
+                //MARK: - NEW TASK ITEM VIEW
+                if showNewTaskItem {
+                    BlankView()
+                        .onTapGesture {
+                            withAnimation() {
+                                showNewTaskItem = false
+                            }
+                        }
+                    NewTaskItemView(isShowing: $showNewTaskItem) // creating a binding between showNewTaskItem in this view and isShowing porperty in NewTaskItemView
+                }
                 
             } //: ZSTACK
             .onAppear() {
