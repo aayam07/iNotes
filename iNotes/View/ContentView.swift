@@ -11,6 +11,9 @@ import CoreData
 struct ContentView: View {
     // MARK: - PROPERTY
     
+    // to store the appearance state permanently in the SwiftUI's user defaults
+    @AppStorage("isDarkMode") private var isDarkModeEnabled: Bool = false // default appearance is light
+    
     @State var task: String = ""  // to hold the value that user enter in the text field
     @State private var showNewTaskItem: Bool = false // to store the actual state of new task item view
     
@@ -52,6 +55,41 @@ struct ContentView: View {
                 //MARK: - MAIN VIEW
                 VStack {
                     //MARK: - HEADER
+                    
+                    HStack(spacing: 10) {
+                        // TITLE
+                        Text("iNotes")
+                            .font(.system(.largeTitle, design: .rounded, weight: .heavy))
+                            .padding(.leading, 4)
+                        
+                        Spacer()
+                        
+                        // EDIT BUTTON
+                        EditButton()
+                            .font(.system(size: 16, weight: .semibold, design: .rounded))
+                            .padding(.horizontal, 10)
+                            .frame(minWidth: 70, minHeight: 24)
+                            .background(
+                                Capsule()
+                                    .stroke(Color.white, lineWidth: 2)
+                            )
+                        
+                        // APPEARANCE BUTTON
+                        
+                        Button {
+                            // TOGGLE APPEARANCE
+                            isDarkModeEnabled.toggle()
+                        } label: {
+                            Image(systemName: isDarkModeEnabled ? "moon.circle.fill" : "moon.circle")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .font(.system(.title, design: .rounded))
+                        }
+
+                    } //: HSTACK
+                    .padding()
+                    .foregroundColor(.white)
+                    
                     Spacer(minLength: 80)
                     
                     //MARK: - NEW TASK BUTTON
@@ -121,16 +159,17 @@ struct ContentView: View {
             }
             .navigationTitle("Daily Tasks")
             .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-//                ToolbarItem {
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
+            .toolbar(.hidden) // to hide the navigation bar
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    EditButton()
 //                }
-        } //: TOOLBAR
+////                ToolbarItem {
+////                    Button(action: addItem) {
+////                        Label("Add Item", systemImage: "plus")
+////                    }
+////                }
+//        } //: TOOLBAR
         .background(
             BackgroundImageView()
         )
