@@ -31,7 +31,7 @@ struct NewTaskItemView: View {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
             // ADD TASK ITEM WHEN USER PRESS SAVE
-            newItem.task = task
+            newItem.task = self.task
             newItem.completion = false
             newItem.id = UUID()
 
