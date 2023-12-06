@@ -79,6 +79,8 @@ struct ContentView: View {
                         Button {
                             // TOGGLE APPEARANCE
                             isDarkModeEnabled.toggle()
+                            playSound(sound: "sound-tap", type: "mp3")
+                            hepticFeedback.notificationOccurred(.success)
                         } label: {
                             Image(systemName: isDarkModeEnabled ? "moon.circle.fill" : "moon.circle")
                                 .resizable()
@@ -95,6 +97,8 @@ struct ContentView: View {
                     //MARK: - NEW TASK BUTTON
                     Button {
                         showNewTaskItem = true
+                        playSound(sound: "sound-ding", type: "mp3")
+                        hepticFeedback.notificationOccurred(.success)
                     } label: {
                         Image(systemName: "plus.circle")
                             .font(.system(size: 30, weight: .semibold, design: .rounded))
@@ -138,6 +142,7 @@ struct ContentView: View {
                     }  //: LIST
                     .listStyle(PlainListStyle())
                     .cornerRadius(12)
+//                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)  // remove default vertical padding and maximize the list on iPad devices

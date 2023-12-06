@@ -22,7 +22,7 @@ struct NewTaskItemView: View {
     
     // to check whether the TEXTFIELD is empty or not
     private var isButtonDisabled: Bool {
-        task.isEmpty  // "true" when no character has been typed in the TEXTFIELD
+        return task.isEmpty  // "true" when no character has been typed in the TEXTFIELD
     }
     
     //MARK: - FUNCTION
@@ -67,6 +67,8 @@ struct NewTaskItemView: View {
                 Button {
                     // ACTION
                     addItem()
+                    playSound(sound: "sound-ding", type: "mp3")
+                    hepticFeedback.notificationOccurred(.success)
                 } label: {
                     Spacer()
                     Text("SAVE")
@@ -74,6 +76,11 @@ struct NewTaskItemView: View {
                     Spacer()
                 }
                 .disabled(isButtonDisabled)
+                .onTapGesture(perform: {
+                    if isButtonDisabled {
+                        playSound(sound: "sound-tap", type: "mp3")
+                    }
+                })
                 .padding()  // vitra padding
 //                .font(.headline)
                 .foregroundColor(.white)

@@ -16,6 +16,7 @@
 		A042B2382AB2CCD200DFEF11 /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A042B2352AB2CCD200DFEF11 /* sound-rise.mp3 */; };
 		A042B2392AB2CCD200DFEF11 /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A042B2362AB2CCD200DFEF11 /* sound-ding.mp3 */; };
 		A042B23A2AB2CCD200DFEF11 /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A042B2372AB2CCD200DFEF11 /* sound-tap.mp3 */; };
+		A067D0682B20B5A400F01FAC /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067D0672B20B5A400F01FAC /* SoundPlayer.swift */; };
 		A0A01BCF2AB885F800F74B26 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A01BCE2AB885F800F74B26 /* Constant.swift */; };
 		A0A01BD12AB9D58700F74B26 /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A01BD02AB9D58700F74B26 /* HideKeyboardExtension.swift */; };
 		A0A01BD32ABA052200F74B26 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A01BD22ABA052200F74B26 /* BackgroundImageView.swift */; };
@@ -37,6 +38,7 @@
 		A042B2362AB2CCD200DFEF11 /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 		A042B2372AB2CCD200DFEF11 /* sound-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-tap.mp3"; sourceTree = "<group>"; };
 		A042B2412AB2CE0F00DFEF11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A067D0672B20B5A400F01FAC /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		A0A01BCE2AB885F800F74B26 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A0A01BD02AB9D58700F74B26 /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
 		A0A01BD22ABA052200F74B26 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A0A01BCE2AB885F800F74B26 /* Constant.swift */,
+				A067D0672B20B5A400F01FAC /* SoundPlayer.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				A042B2252AB2CB3B00DFEF11 /* ContentView.swift in Sources */,
 				A042B2232AB2CB3B00DFEF11 /* iNotesApp.swift in Sources */,
 				A0FA03152AC542330004AFA5 /* CheckboxStyle.swift in Sources */,
+				A067D0682B20B5A400F01FAC /* SoundPlayer.swift in Sources */,
 				A0A01BD72ABAB3C700F74B26 /* NewTaskItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
