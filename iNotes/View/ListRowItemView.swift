@@ -22,7 +22,7 @@ struct ListRowItemView: View {
                 .fontWeight(.heavy)
                 .foregroundColor(item.completion ? Color.pink : Color.primary)
                 .padding(.vertical, 12)
-                .animation(.default, value: item.completion)
+                .animation(.default, value: item.completion) // toggle ma press garda label ma animation provide garne
         }  //: TOGGLE
         .toggleStyle(CheckboxStyle())
         // to achieve UPDATE functionality in the data store

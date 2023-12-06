@@ -144,10 +144,15 @@ struct ContentView: View {
                     .padding()
                    
                 } //: VSTACK
+                .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false)
+                .transition(.move(edge: .bottom))
+                .animation(Animation.easeInOut(duration: 0.3), value: showNewTaskItem)  // showNewTaskItem ko value change huda animation apply garne jun jun thau ma yo property use vayeko cha
                 
                 //MARK: - NEW TASK ITEM VIEW
                 if showNewTaskItem {
-                    BlankView()
+                    BlankView(
+                        backgroundColor: isDarkModeEnabled ? Color.black : Color.gray,
+                        backgroundOpacity: isDarkModeEnabled ? 0.3 : 0.5)
                         .onTapGesture {
                             withAnimation() {
                                 showNewTaskItem = false
@@ -175,6 +180,10 @@ struct ContentView: View {
 //        } //: TOOLBAR
         .background(
             BackgroundImageView()
+                .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false)
+                .transition(.move(edge: .bottom))
+                .animation(Animation.easeInOut(duration: 0.3), value: showNewTaskItem)  // showNewTaskItem ko value change huda animation apply garne jun jun thau ma yo property use vayeko cha
+            
         )
         .background(
             backgroundGradient.ignoresSafeArea(.all)
