@@ -12,12 +12,12 @@ struct Provider: TimelineProvider {
     
     // to provide timeline entry representing a placeholder version of the widget
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+        SimpleEntry(date: Date(), emoji: "🧡")
     }
 
     // to represent current time and state of the widget
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+        let entry = SimpleEntry(date: Date(), emoji: "🧡")
         completion(entry)
     }
 
@@ -29,7 +29,7 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
+            let entry = SimpleEntry(date: entryDate, emoji: "🧡")
             entries.append(entry)
         }
 
@@ -45,15 +45,72 @@ struct SimpleEntry: TimelineEntry {
 
 struct iNotesWidgetEntryView : View {
     var entry: Provider.Entry
+    
+    // to get the actual size (small, medium or large) of any widget instance and to understand the current widget configuration size and present different views
+    @Environment(\.widgetFamily) var widgetFamily
+    
+    // computed property
+    var fontStyle: Font {
+        if widgetFamily == .systemSmall {
+            return .system(.footnote, design: .rounded)
+        } else {
+            return .system(.headline, design: .rounded)
+        }
+    }
 
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Emoji:")
-            Text(entry.emoji)
-        }
+//        VStack {
+//            Text("Time:")
+//            Text(entry.date, style: .time)
+//
+//            Text("Emoji:")
+//            Text(entry.emoji)
+//        }
+        
+        GeometryReader { geometry in
+            ZStack {
+                
+                backgroundGradient  // from constant file
+                
+                Image("rocket-small")
+                    .resizable()
+                    .scaledToFit()
+                
+                Image("logo")
+                    .resizable()
+                    .frame(
+                        width: widgetFamily != .systemSmall ? 56 : 36,
+                        height: widgetFamily != .systemSmall ? 56 : 36
+                    )
+                    .offset(
+                        x: (geometry.size.width / 2) - 20,
+                        y: (geometry.size.height / -2) + 20
+                    )  // to place the logo in the top right corner
+                    .padding(.top, widgetFamily != .systemSmall ? 32 : 12)
+                    .padding(.trailing, widgetFamily != .systemSmall ? 32 : 12)
+                
+                HStack {
+                    Text("Go For It 💪")
+                        .foregroundStyle(Color.white)  // foreground color
+                        .font(fontStyle)
+                        .fontWeight(.bold)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 4) // first padding then background
+                        .background(
+                            Color(red: 0, green: 0, blue: 0, opacity: 0.5)
+                                .blendMode(.overlay)
+                        )
+                    .clipShape(Capsule())
+                    
+                    if widgetFamily != .systemSmall {
+                        Spacer()
+                    }
+                    
+                } //: HSTACK
+                .padding()
+                .offset(y: (geometry.size.height / 2) - 24)
+            } //: ZSTACK
+        } //: GEOMETRY READER
     }
 }
 
@@ -77,17 +134,28 @@ struct iNotesWidget: Widget {
                 iNotesWidgetEntryView(entry: entry)
                     .padding()
                     .background()
+                    
             }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .contentMarginsDisabled()
+        .configurationDisplayName("iNotes Launcher")
+        .description("This is a widget for the personal task manager iNotes app.")
     }
 }
 
 #Preview(as: .systemSmall) {
     iNotesWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
+    SimpleEntry(date: .now, emoji: "🧡")
+    SimpleEntry(date: .now, emoji: "💪")
 }
+
+#Preview(as: .systemMedium) {
+    iNotesWidget()
+} timeline: {
+    SimpleEntry(date: .now, emoji: "🧡")
+    SimpleEntry(date: .now, emoji: "💪")
+}
+
+
 

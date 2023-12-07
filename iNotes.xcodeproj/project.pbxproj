@@ -13,6 +13,8 @@
 		A00E2B5B2B2182900095BC7A /* iNotesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E2B5A2B2182900095BC7A /* iNotesWidget.swift */; };
 		A00E2B5D2B2182930095BC7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00E2B5C2B2182930095BC7A /* Assets.xcassets */; };
 		A00E2B612B2182930095BC7A /* iNotesWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A00E2B512B2182900095BC7A /* iNotesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A00E2B652B21A13A0095BC7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A042B2262AB2CB3C00DFEF11 /* Assets.xcassets */; };
+		A00E2B662B21A21D0095BC7A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A01BCE2AB885F800F74B26 /* Constant.swift */; };
 		A042B2232AB2CB3B00DFEF11 /* iNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042B2222AB2CB3B00DFEF11 /* iNotesApp.swift */; };
 		A042B2252AB2CB3B00DFEF11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042B2242AB2CB3B00DFEF11 /* ContentView.swift */; };
 		A042B2272AB2CB3C00DFEF11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A042B2262AB2CB3C00DFEF11 /* Assets.xcassets */; };
@@ -306,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00E2B652B21A13A0095BC7A /* Assets.xcassets in Resources */,
 				A00E2B5D2B2182930095BC7A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +334,7 @@
 			files = (
 				A00E2B592B2182900095BC7A /* iNotesWidgetBundle.swift in Sources */,
 				A00E2B5B2B2182900095BC7A /* iNotesWidget.swift in Sources */,
+				A00E2B662B21A21D0095BC7A /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
