@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00E2B542B2182900095BC7A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00E2B532B2182900095BC7A /* WidgetKit.framework */; };
+		A00E2B562B2182900095BC7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00E2B552B2182900095BC7A /* SwiftUI.framework */; };
+		A00E2B592B2182900095BC7A /* iNotesWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E2B582B2182900095BC7A /* iNotesWidgetBundle.swift */; };
+		A00E2B5B2B2182900095BC7A /* iNotesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E2B5A2B2182900095BC7A /* iNotesWidget.swift */; };
+		A00E2B5D2B2182930095BC7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00E2B5C2B2182930095BC7A /* Assets.xcassets */; };
+		A00E2B612B2182930095BC7A /* iNotesWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A00E2B512B2182900095BC7A /* iNotesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A042B2232AB2CB3B00DFEF11 /* iNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042B2222AB2CB3B00DFEF11 /* iNotesApp.swift */; };
 		A042B2252AB2CB3B00DFEF11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042B2242AB2CB3B00DFEF11 /* ContentView.swift */; };
 		A042B2272AB2CB3C00DFEF11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A042B2262AB2CB3C00DFEF11 /* Assets.xcassets */; };
@@ -26,7 +32,38 @@
 		A0FA03152AC542330004AFA5 /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA03142AC542330004AFA5 /* CheckboxStyle.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A00E2B5F2B2182930095BC7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A042B2172AB2CB3B00DFEF11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00E2B502B2182900095BC7A;
+			remoteInfo = iNotesWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A00E2B2C2B217F810095BC7A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A00E2B612B2182930095BC7A /* iNotesWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A00E2B512B2182900095BC7A /* iNotesWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iNotesWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00E2B532B2182900095BC7A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A00E2B552B2182900095BC7A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A00E2B582B2182900095BC7A /* iNotesWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iNotesWidgetBundle.swift; sourceTree = "<group>"; };
+		A00E2B5A2B2182900095BC7A /* iNotesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iNotesWidget.swift; sourceTree = "<group>"; };
+		A00E2B5C2B2182930095BC7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00E2B5E2B2182930095BC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A042B21F2AB2CB3B00DFEF11 /* iNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A042B2222AB2CB3B00DFEF11 /* iNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iNotesApp.swift; sourceTree = "<group>"; };
 		A042B2242AB2CB3B00DFEF11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +86,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A00E2B4E2B2182900095BC7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00E2B562B2182900095BC7A /* SwiftUI.framework in Frameworks */,
+				A00E2B542B2182900095BC7A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A042B21C2AB2CB3B00DFEF11 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,10 +105,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A00E2B522B2182900095BC7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A00E2B532B2182900095BC7A /* WidgetKit.framework */,
+				A00E2B552B2182900095BC7A /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A00E2B572B2182900095BC7A /* iNotesWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A00E2B582B2182900095BC7A /* iNotesWidgetBundle.swift */,
+				A00E2B5A2B2182900095BC7A /* iNotesWidget.swift */,
+				A00E2B5C2B2182930095BC7A /* Assets.xcassets */,
+				A00E2B5E2B2182930095BC7A /* Info.plist */,
+			);
+			path = iNotesWidget;
+			sourceTree = "<group>";
+		};
 		A042B2162AB2CB3B00DFEF11 = {
 			isa = PBXGroup;
 			children = (
 				A042B2212AB2CB3B00DFEF11 /* iNotes */,
+				A00E2B572B2182900095BC7A /* iNotesWidget */,
+				A00E2B522B2182900095BC7A /* Frameworks */,
 				A042B2202AB2CB3B00DFEF11 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				A042B21F2AB2CB3B00DFEF11 /* iNotes.app */,
+				A00E2B512B2182900095BC7A /* iNotesWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +228,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A00E2B502B2182900095BC7A /* iNotesWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00E2B622B2182930095BC7A /* Build configuration list for PBXNativeTarget "iNotesWidgetExtension" */;
+			buildPhases = (
+				A00E2B4D2B2182900095BC7A /* Sources */,
+				A00E2B4E2B2182900095BC7A /* Frameworks */,
+				A00E2B4F2B2182900095BC7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iNotesWidgetExtension;
+			productName = iNotesWidgetExtension;
+			productReference = A00E2B512B2182900095BC7A /* iNotesWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A042B21E2AB2CB3B00DFEF11 /* iNotes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A042B2322AB2CB3C00DFEF11 /* Build configuration list for PBXNativeTarget "iNotes" */;
@@ -166,10 +252,12 @@
 				A042B21B2AB2CB3B00DFEF11 /* Sources */,
 				A042B21C2AB2CB3B00DFEF11 /* Frameworks */,
 				A042B21D2AB2CB3B00DFEF11 /* Resources */,
+				A00E2B2C2B217F810095BC7A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A00E2B602B2182930095BC7A /* PBXTargetDependency */,
 			);
 			name = iNotes;
 			productName = iNotes;
@@ -183,9 +271,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					A00E2B502B2182900095BC7A = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					A042B21E2AB2CB3B00DFEF11 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -205,11 +296,20 @@
 			projectRoot = "";
 			targets = (
 				A042B21E2AB2CB3B00DFEF11 /* iNotes */,
+				A00E2B502B2182900095BC7A /* iNotesWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A00E2B4F2B2182900095BC7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00E2B5D2B2182930095BC7A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A042B21D2AB2CB3B00DFEF11 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +325,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A00E2B4D2B2182900095BC7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00E2B592B2182900095BC7A /* iNotesWidgetBundle.swift in Sources */,
+				A00E2B5B2B2182900095BC7A /* iNotesWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A042B21B2AB2CB3B00DFEF11 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,11 +355,83 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A00E2B602B2182930095BC7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00E2B502B2182900095BC7A /* iNotesWidgetExtension */;
+			targetProxy = A00E2B5F2B2182930095BC7A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A00E2B632B2182930095BC7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 985R44ND7P;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iNotesWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = iNotesWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aayam.iNotes.iNotesWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A00E2B642B2182930095BC7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 985R44ND7P;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iNotesWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = iNotesWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aayam.iNotes.iNotesWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A042B2302AB2CB3C00DFEF11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -311,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -364,6 +546,7 @@
 		A042B2332AB2CB3C00DFEF11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -392,6 +575,7 @@
 		A042B2342AB2CB3C00DFEF11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -420,6 +604,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A00E2B622B2182930095BC7A /* Build configuration list for PBXNativeTarget "iNotesWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00E2B632B2182930095BC7A /* Debug */,
+				A00E2B642B2182930095BC7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A042B21A2AB2CB3B00DFEF11 /* Build configuration list for PBXProject "iNotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
